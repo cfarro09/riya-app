@@ -1,0 +1,35 @@
+.addressInput {
+    border: 1px solid #ddd;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.continueButton {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.categoryButton {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.categoryButton.primary {
+    background-color: #007bff;
+    /* Color azul */
+    color: #fff;
+    /* Texto blanco */
+}
+
+.categoryButton.medium {
+    background-color: #f0f0f0;
+    /* Color de fondo gris */
+    color: #333;
+    /* Texto gris oscuro */
+}

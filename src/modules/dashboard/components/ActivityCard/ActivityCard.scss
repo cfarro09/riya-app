@@ -1,0 +1,20 @@
+.activity {
+    &-image {
+        width: 90% !important; 
+        aspect-ratio: 16/9;
+        border-radius: 10px;
+        overflow: hidden;
+        object-fit: cover;
+        margin-bottom: .7rem;
+    }
+
+    &-name {
+        font-size: 1rem;
+    }
+
+    &-sport {
+        font-size: .9rem;
+        font-weight: 600;
+        color: #A17D1C;
+    }
+}

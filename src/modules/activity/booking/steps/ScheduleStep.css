@@ -1,0 +1,17 @@
+ion-modal#start-date-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-chip {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+
+ion-chip.chip-outline {
+  --background: var(--ion-color-primary-contrast);
+  --color: var(--ion-color-primary);
+}

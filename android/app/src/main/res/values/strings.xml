@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Milla App</string>
+    <string name="title_activity_main">Milla App</string>
+    <string name="package_name">milla.dev.app</string>
+    <string name="custom_url_scheme">milla.dev.app</string>
+    <string name="com_auth0_client_id">sqDhtvXngN9yhjm8rUjZhjVjyMAhCpMH</string>
+    <string name="com_auth0_domain">milla.us.auth0.com</string>
+</resources>

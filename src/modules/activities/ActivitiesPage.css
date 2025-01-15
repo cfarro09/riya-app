@@ -1,0 +1,44 @@
+.box-image {
+  position: relative;
+
+  button {
+    position: absolute;
+    top: .1rem;
+    right: .1rem;
+    font-size: 1.2rem;
+    padding: .4rem;
+
+    background-color: #ddd;
+    border-radius: 50%;
+
+    &.favorite {
+      left: .1rem;
+      top: .1rem;
+      right: inherit;
+    }
+  }
+}
+
+ion-modal#activity-name-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+.autocomplete-container {
+  position: relative;
+}
+
+.autocomplete-container .autocomplete-dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.autocomplete-container .autocomplete-dropdown-container ion-item {
+  border-bottom: 2px solid #eee;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "milla-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

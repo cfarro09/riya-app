@@ -1,0 +1,49 @@
+.booking-summary-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+
+  .summary-label {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .summary-value {
+    font-size: 1rem;
+    color: #555;
+    margin-left: 5px;
+  }
+
+  .schedules-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .schedule-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    padding: 8px;
+    background-color: #dfe4ea;
+    color: #2f3542;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+
+  .schedule-day {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #3742fa;
+    margin-bottom: 2px;
+  }
+
+  .schedule-time {
+    font-size: 0.85rem;
+    color: #57606f;
+  }
+
+}

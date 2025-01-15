@@ -1,0 +1,14 @@
+.text-center {
+  text-align: center;
+}
+
+.activity-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+ion-col{
+  text-align: center;
+}

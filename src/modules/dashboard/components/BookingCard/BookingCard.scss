@@ -1,0 +1,20 @@
+.booking {
+    &-image {
+        width: 27vw;
+        height: 27vw;
+        border-radius: 10px;
+        overflow: hidden;
+        object-fit: contain;
+        margin-bottom: .7rem;
+    }
+
+    &-name {
+        font-size: 1rem;
+    }
+
+    &-sport {
+        font-size: .9rem;
+        font-weight: 600;
+        color: #A17D1C;
+    }
+}

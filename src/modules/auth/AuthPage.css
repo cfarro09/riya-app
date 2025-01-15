@@ -1,0 +1,18 @@
+.intro-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.intro-logo-container {
+    display: flex;
+    flex: 0.4;
+    align-content: center;
+    justify-content: center;
+}
+
+.intro-logo-container ion-img {
+    width: 70%;
+    max-width: 400px;
+}

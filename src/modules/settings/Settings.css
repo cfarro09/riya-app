@@ -1,0 +1,10 @@
+.settings-user-photo{
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+}
+
+.full-width{
+  width: 100%;
+}
