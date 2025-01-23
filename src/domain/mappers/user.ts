@@ -16,6 +16,7 @@ export function mapUserResponseToUser(response: StrapiSingleResponse<UserRespons
     blocked: response?.data?.attributes?.blocked || false,
     onboarded: response?.data?.attributes?.onboarded || false,
     address: response?.data?.attributes?.address || '',
+    auth0Id: null,
     type: response?.data?.attributes?.type || '',
     picture: mapMediaResponseToMedia(response?.data?.attributes?.picture),
     categories: response?.data?.attributes?.categories || []

@@ -13,6 +13,7 @@ export interface User {
     isMyTrainer?: boolean,
     address: null | string,
     type: null | string,
+    auth0Id: null | string,
     avgRating?: number,
     userRating?: number,
     picture: Media | undefined,
@@ -28,6 +29,7 @@ export interface UserResponse {
     blocked: boolean,
     onboarded: null | boolean,
     address: null | string,
+    auth0Id: null | string,
     picture: StrapiSingleResponse<MediaResponse>,
     categories?: Category[]
 }

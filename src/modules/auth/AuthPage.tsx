@@ -12,7 +12,7 @@ import {authUser} from '../../proxy/auth'
 import {useHistory} from 'react-router'
 
 const AuthPage: React.FC = () => {
-  const {handleRedirectCallback} = useAuth0()
+  const {handleRedirectCallback, } = useAuth0()
   const history = useHistory()
   const {loginWithRedirect} = useAuth0()
   const [loading, setLoading] = useState(false)

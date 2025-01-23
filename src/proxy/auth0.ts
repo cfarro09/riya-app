@@ -1,6 +1,7 @@
 import { auth0ApiUrl, clientIdAuth0Api, clientSecretAuth0Api } from "../auth.config";
 import { AuthToken } from "../domain/auth0";
 import { User } from "../domain/user";
+import { getAuth } from '../utils/auth-utils';
 
 export async function getUserById(accessToken: string): Promise<User> {
     try {
@@ -20,19 +21,18 @@ export async function getUserById(accessToken: string): Promise<User> {
     }
 }
 
-
 export async function getAuthToken(): Promise<AuthToken> {
     try {
-        const response = await fetch(`${auth0ApiUrl}/oauth/token`, {
+        const response = await fetch(`https://dev-6m4hbmrr1ebgapmp.us.auth0.com/oauth/token`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                client_id: clientIdAuth0Api,
-                client_secret: clientSecretAuth0Api,
-                audience: `https://dev-6m4hbmrr1ebgapmp.us.auth0.com/api/v2/`,
-                grant_type: "client_credentials"
+                "client_id": "PjFyOIiEKzvVLr009IcfzlDtZB5ZZEYh",
+                "client_secret": "cU1pTIweAXmqgQZ4PkS5GVh2VnQ9bmbLsD3vvUeTYDVPrIYOunhOVkyqG2uwCoro",
+                "audience": "https://dev-6m4hbmrr1ebgapmp.us.auth0.com/api/v2/",
+                "grant_type": "client_credentials"
             }),
         });
 
@@ -45,3 +45,22 @@ export async function getAuthToken(): Promise<AuthToken> {
     }
 }
 
+export async function deleteUser(userId: string): Promise<void> {
+    try {
+        const token = await getAuthToken();
+        console.log("token.access_token", token.access_token)
+        const response = await fetch(`${auth0ApiUrl}/api/v2/users/${userId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token.access_token}`,
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        throw error;
+    }
+}
