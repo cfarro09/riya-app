@@ -38,7 +38,7 @@ const OnboardingPage: FC = () => {
 				}
 
 				if (name.trim().length === 0) {
-					alert("Debes ingresar tu nombre");
+					alert("Debes ingresar tu alias");
 					return;
 				}
 
@@ -75,7 +75,7 @@ const OnboardingPage: FC = () => {
 				<div className="app">
 					<Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component="h1">Como te podriamos ayudar?</Text>
 					<div className='addressInput'>
-						<IonInput class="search-input" placeholder={"Ingresa tu nombre"} onIonInput={(event: any) => setName(event.target.value)} />
+						<IonInput class="search-input" placeholder={"Ingresa tu alias"} onIonInput={(event: any) => setName(event.target.value)} />
 					</div>
 					<div className='addressInput'>
 						<IonInput class="search-input" placeholder={"Ingresa tu dirección"} onIonInput={(event: any) => setAddress(event.target.value)} />
