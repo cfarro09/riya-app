@@ -51,8 +51,16 @@ const AuthProvider: FC<WithChildren> = ({ children }) => {
     }
 
     const logout = () => {
-        saveAuth(undefined)
-        setCurrentUser(undefined)
+        try {
+            saveAuth(undefined)
+        } catch (error) {
+            
+        }
+        try {
+            setCurrentUser(undefined)
+        } catch (error) {
+            
+        }
     }
 
     return (

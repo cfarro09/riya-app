@@ -61,6 +61,6 @@ export async function deleteUser(userId: string): Promise<void> {
             throw new Error('Network response was not ok');
         }
     } catch (error) {
-        throw error;
+        // throw error;
     }
 }
