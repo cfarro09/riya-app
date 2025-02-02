@@ -4,8 +4,11 @@
      * -------------------------------------------
      */
   
-    body {
-      --ion-color-primary: #428cff;
+     body {
+      --ion-text-color: #ffffff;
+
+      --color: #ffffff;
+      --ion-color-primary: #F6C745;
       --ion-color-primary-rgb: 66,140,255;
       --ion-color-primary-contrast: #ffffff;
       --ion-color-primary-contrast-rgb: 255,255,255;
@@ -47,7 +50,7 @@
       --ion-color-danger-shade: #e04055;
       --ion-color-danger-tint: #ff5b71;
   
-      --ion-color-dark: #f4f5f8;
+      --ion-color-dark: #F6C745;
       --ion-color-dark-rgb: 244,245,248;
       --ion-color-dark-contrast: #000000;
       --ion-color-dark-contrast-rgb: 0,0,0;

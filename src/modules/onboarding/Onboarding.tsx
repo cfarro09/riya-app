@@ -73,31 +73,33 @@ const OnboardingPage: FC = () => {
 			</IonHeader>
 			<IonContent>
 				<div className="app">
-					<Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component="h1">Como te podriamos ayudar?</Text>
+					<Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component="h1"style={{ color: 'var(--ion-color-dark)' }}>¿Cómo te podríamos ayudar?
+					</Text>
 					<div className='addressInput'>
-						<IonInput class="search-input" placeholder={"Ingresa tu alias"} onIonInput={(event: any) => setName(event.target.value)} />
+						<IonInput placeholder={"Ingresa tu alias"} style={{ '--color': 'var(--ion-text-color)' }}  onIonInput={(event: any) => setName(event.target.value)} 
+						/>
 					</div>
 					<div className='addressInput'>
-						<IonInput class="search-input" placeholder={"Ingresa tu dirección"} onIonInput={(event: any) => setAddress(event.target.value)} />
+						<IonInput placeholder={"Ingresa tu dirección"} style={{ '--color': 'var(--ion-text-color)' }} onIonInput={(event: any) => setAddress(event.target.value)} />
 					</div>
 					<div className='addressInput'>
-						<IonRadioGroup onClick={(e: any) => {
-							setType(e?.target?.value)
-						}} name={`type-radio`} value={"ofertante"}>
+						<IonRadioGroup
+						onChange={(e: any) => setType(e?.target?.value)}
+						name={`type-radio`} defaultValue={"ofertante"}>
 							<IonItem>
-								<IonRadio style={{'--background': '#F6C745'}} mode='md' value={`ofertante`}>
+								<IonRadio mode='md' value={`ofertante`}>
 									Quiero dar un servicio
 								</IonRadio>
 							</IonItem>
 							<IonItem>
-								<IonRadio style={{'--background': '#F6C745'}} mode='md' value={`demandante`}>
+								<IonRadio mode='md' value={`demandante`}>
 									Quiero comprar
 								</IonRadio>
 							</IonItem>
 						</IonRadioGroup>
 					</div>
-					<Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component="h1">
-						{type === "ofertante" ? "¿que categorías desea registrar?" : "Categorias favoritas"}
+					<Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component="h1" style={{ color: 'var(--ion-color-dark)' }}>
+						{type === "ofertante" ? "¿Qué categorías desea registrar?" : "Categorias favoritas"}
 					</Text>
 					<div className="categorySelection">
 						{categories.map(category => (
@@ -115,7 +117,7 @@ const OnboardingPage: FC = () => {
 			</IonContent>
 			<IonFooter collapse="fade">
 				<IonToolbar className='center'>
-					<IonButton style={{'--background': '#F6C745'}} className='continueButton' onClick={handleOnboardingUser} >
+					<IonButton className='continueButton' onClick={handleOnboardingUser} >
 						<IonLabel>Continuar</IonLabel>
 					</IonButton>
 				</IonToolbar>

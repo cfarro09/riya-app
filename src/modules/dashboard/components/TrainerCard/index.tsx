@@ -11,8 +11,8 @@ const TrainerCard: FC<TrainerProps> = ({ trainer }) => {
     return (
         <div className="trainer">
             <IonImg className="trainer-image" src={trainer?.picture?.url || "/userdefault.png"} />
-            <div className="trainer-name">{trainer.name}</div>
-            <div className="trainer-sport">{trainer?.categories ? trainer?.categories[0].name : ''}</div>
+            <div className="trainer-name" style={{ color: 'var(--ion-color-dark)' }}>{trainer.name}</div>
+            <div className="trainer-sport" style={{ color: 'var(--ion-color-dark)' }}>{trainer?.categories ? trainer?.categories[0].name : ''}</div>
         </div>
     );
 };

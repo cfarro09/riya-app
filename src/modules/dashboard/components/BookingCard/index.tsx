@@ -27,8 +27,8 @@ const BookingCard: FC<BookingProps> = ({ booking }) => {
     return (
         <div className="booking">
             <img className='activity-image' src={picture} />
-            <div className='activity-name'>{activity.name}</div>
-            <div className='activity-name'>{activity.category?.name}</div>
+            <div className='activity-name' style={{ color: 'var(--ion-color-dark)' }}>{activity.name}</div>
+            <div className='activity-name' style={{ color: 'var(--ion-color-dark)' }}>{activity.category?.name}</div>
         </div>
     );
 };

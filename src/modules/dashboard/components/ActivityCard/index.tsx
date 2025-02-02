@@ -25,8 +25,8 @@ const ActivityCard: FC<TrainerProps> = ({activity}) => {
   return (
     <div className='activity' style={{ border: '1px solid #ededed', width: '95%', paddingBottom: 18,  borderRadius: 8, marginRight: 8 }}>
       <img className='activity-ima' src={picture} style={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }} />
-      <div className='activity-name' style={{ marginLeft: 8, marginRight: 8, marginTop: 8, fontWeight: "bold" }}>{activity.name}</div>
-      <div className='activity-name' style={{ marginLeft: 8, marginRight: 8, marginTop: 8 }}>{activity.category?.name}</div>
+      <div  className='activity-name' style={{ marginLeft: 8, marginRight: 8, marginTop: 8, fontWeight: "bold", color: 'var(--ion-color-dark)' }}>{activity.name}</div>
+      <div className='activity-name' style={{ marginLeft: 8, marginRight: 8, marginTop: 8, color: 'var(--ion-color-dark)' }}>{activity.category?.name}</div>
     </div>
   )
 }

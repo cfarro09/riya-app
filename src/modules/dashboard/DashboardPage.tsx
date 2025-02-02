@@ -80,14 +80,14 @@ const DashboardPage: FC = () => {
           {currentUser?.type != "ofertante" &&
             <>
               <Text
-                style={{ marginTop: 0 }}
+                style={{ marginTop: 0, color: 'var(--ion-color-dark)' }}
                 size={TextSize.MEDIUM}
                 weight={FontWeight.BOLD}
                 component='h1'
               >
                 Categorias
               </Text>
-              <SearchInput placeHolder='Buscar categorias' onChange={handleFilterCategory} />
+              <SearchInput placeHolder='Buscar' onChange={handleFilterCategory} />
               <CategoryGrid
                 categories={filteredCategories}
                 onClickItem={(category) => {
@@ -97,7 +97,7 @@ const DashboardPage: FC = () => {
               />
             </>
           }
-          <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1'>
+          <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1' style={{ color: 'var(--ion-color-dark)' }}>
             Últimas actividades
           </Text>
           <ActivitiesSlider
@@ -109,7 +109,7 @@ const DashboardPage: FC = () => {
           />
           {currentUser?.type != "ofertante" &&
             <>
-              <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1'>
+              <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1' style={{ color: 'var(--ion-color-dark)' }}>
                 Mis reservas
               </Text>
               <BookingsSlider
@@ -125,7 +125,7 @@ const DashboardPage: FC = () => {
           }
           {currentUser?.type != "ofertante" &&
             <>
-              <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1'>
+              <Text size={TextSize.MEDIUM} weight={FontWeight.BOLD} component='h1' style={{ color: 'var(--ion-color-dark)' }}>
                 Entrenadores
               </Text>
               <TrainerSlider

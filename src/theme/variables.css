@@ -3,6 +3,7 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  --ion-text-color: #000;
   /** primary **/
   --ion-color-primary: #F6C745;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -50,7 +51,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-danger-contrast-rgb: 255, 255, 255;
   --ion-color-danger-shade: #cf3c4f;
   --ion-color-danger-tint: #ed576b;
-
+--ion-text-color: #ffffff
   /** dark **/
   --ion-color-dark: #222428;
   --ion-color-dark-rgb: 34, 36, 40;

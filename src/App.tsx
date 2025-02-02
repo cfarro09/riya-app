@@ -19,6 +19,8 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/dark_theme_variables.css';
+
 import { AppRoutes } from './routing/Routes';
 import { AuthProvider } from './store/AuthProvider';
 import { IonReactRouter } from '@ionic/react-router';
