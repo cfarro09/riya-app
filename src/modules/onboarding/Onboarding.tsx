@@ -79,12 +79,12 @@ const OnboardingPage: FC = () => {
 						<IonInput placeholder={"Ingresa tu alias"} style={{ '--color': 'var(--ion-text-color)' }}  onIonInput={(event: any) => setName(event.target.value)} 
 						/>
 					</div>
-					<div className='addressInput'>
+					<div className='addressInput'>``
 						<IonInput placeholder={"Ingresa tu dirección"} style={{ '--color': 'var(--ion-text-color)' }} onIonInput={(event: any) => setAddress(event.target.value)} />
 					</div>
 					<div className='addressInput'>
 						<IonRadioGroup
-						onChange={(e: any) => setType(e?.target?.value)}
+						onIonChange={(e: any) => setType(e?.target?.value)}
 						name={`type-radio`} defaultValue={"ofertante"}>
 							<IonItem>
 								<IonRadio mode='md' value={`ofertante`}>

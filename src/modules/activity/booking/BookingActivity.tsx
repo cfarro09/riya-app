@@ -107,11 +107,45 @@ const BookingActivity = ({ onDismiss }: BookingActivityProps) => {
   const handleBooking = async () => {
     try {
       if (booking) {
-        presentLoading({ message: 'Creando Reserva...', spinner: 'lines' });
-        const bookingReponse = await createBooking(booking);
-        dispatch({ type: AppActions.AddBooking, payload: booking });
-        dismissLoading();
-        onDismiss();
+        if (booking.persons.some(person => !person.dni || !person.name)) {
+          present({
+            message: `Debe ingresar el DNI y nombre de todos los participantes`,
+            duration: 3000,  // Duración en milisegundos
+            color: 'danger',  // Color del toast (rojo para errores)
+            position: 'top',  // Posición del toast (top, middle, bottom)
+            buttons: [
+              {
+                text: 'Cerrar',
+                role: 'cancel',
+                handler: () => {
+                  dismiss();
+                },
+              },
+            ],
+          });
+        } else {
+          presentLoading({ message: 'Creando Reserva...', spinner: 'lines' });
+          const bookingReponse = await createBooking(booking);
+          dispatch({ type: AppActions.AddBooking, payload: booking });
+          //muestra una alerta de exito de creacion de reserva
+          present({
+            message: `Reserva creada con éxito`,
+            duration: 3000,  // Duración en milisegundos
+            color: 'success',  // Color del toast (rojo para errores)
+            position: 'top',  // Posición del toast (top, middle, bottom)
+            buttons: [
+              {
+                text: 'Cerrar',
+                role: 'cancel',
+                handler: () => {
+                  dismiss();
+                },
+              },
+            ],
+          });
+          dismissLoading();
+          onDismiss();
+        }
       }
     } catch (error) {
       dismissLoading();

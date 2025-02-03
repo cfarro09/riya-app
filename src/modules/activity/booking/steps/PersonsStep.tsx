@@ -76,7 +76,8 @@ const PersonsStep = () => {
               labelPlacement='floating'
               fill='outline'
               value={person.dni}
-              onIonChange={(e) => handleDniPerson(e, index)}
+              debounce={300}
+              onIonInput={(e) => handleDniPerson(e, index)}
             ></IonInput>
           </div>
         ))}
