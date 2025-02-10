@@ -31,10 +31,11 @@ const SummaryStep: React.FC = () => {
   })
 
   const getTotalPrice = () => {
+    
     if (!selectedPrice) return 0
-    return selectedPrice?.numberOfClasses === 1
+    return (selectedPrice?.numberOfClasses === 1
       ? selectedSchedules.length * selectedPrice?.value
-      : selectedPrice?.value
+      : selectedPrice?.value) * (booking?.persons.length || 1)
   }
 
   return (

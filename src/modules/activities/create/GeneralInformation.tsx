@@ -224,7 +224,8 @@ const GeneralInformation: React.FC<GeneralInformationProps> = ({ update }) => {
         fill='outline'
         placeholder='¿A que número se va a yapear o plinear?'
         value={phonetopay}
-        onIonChange={(event) => setPhonetopay(event.target.value as string)}
+        debounce={300}
+        onIonInput={(event) => setPhonetopay(event.target.value as string)}
       ></IonInput>
       
       <IonTextarea

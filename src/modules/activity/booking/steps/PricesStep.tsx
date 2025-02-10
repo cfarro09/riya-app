@@ -16,6 +16,22 @@ import { Price } from '../../../../domain/price'
 import { Activity } from '../../../../domain/activity'
 import { isThereAScheduleOnThisWeekDay } from '../../../../utils/time'
 import { calculateTotalPrice, getLastClass, getTotalNumberOfClasses } from '../../../../utils/price'
+import { Booking } from '../../../../domain/booking'
+import { Schedule } from '../../../../domain/schedule'
+
+const validatePrices = (booking: Booking, selectedSchedules: Schedule[]) => {
+  const possiblePrices: Price[] =
+    booking?.activity?.prices?.filter(
+      (price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1) && (!booking.age || booking.age.id === price?.age?.id) && (!booking.level || booking.level.id === price.level?.id))
+    ) || [];
+    if (possiblePrices.length === 0) {
+      return booking?.activity?.prices?.filter(
+        (price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1) && ((!booking.level || booking.level.id === price.level?.id) || (!booking.age || booking.age.id === price?.age?.id)))
+      ) || [];
+    } else {
+      return possiblePrices;
+    }
+}
 
 const PricesStep: React.FC = () => {
   const { booking } = useBookingAppState()
@@ -23,10 +39,12 @@ const PricesStep: React.FC = () => {
   const selectedSchedules = booking?.schedulesSelected ?? []
   const startDate = booking?.startDate ?? null
   const [selectedPrice, setSelectedPrice] = useState<Price | null>(null)
-  const possiblePrices: Price[] =
-    booking?.activity?.prices?.filter(
-      (price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1) && (!booking.age || booking.age.id === price?.age?.id) && (!booking.level || booking.level.id === price.level?.id))
-    ) || []
+
+  console.log("booking?.activity?.prices", booking?.activity?.prices);
+  console.log("selectedSchedules", selectedSchedules);
+  console.log("booking", booking);
+
+  const possiblePrices: Price[] = validatePrices(booking!, selectedSchedules)
 
   const dispatch = useBookingDispatch();
 
@@ -93,9 +111,9 @@ const PricesStep: React.FC = () => {
           </IonCardHeader>
           <IonCardContent>
             {price.age && <IonText>Edad: {price.age.name}</IonText>}
-            {price.age && <br/>}
+            {price.age && <br />}
             {price.level && <IonText>Nivel: {price.level.name}</IonText>}
-            {price.level && <br/>}
+            {price.level && <br />}
             {activityType === 'Clase' && <IonText>{getTotalNumberOfClassesString(price)} en los horarios que has escogido</IonText>}
             {activityType === 'Clase' && <br />}
             {activityType === 'Clase' && <IonText color={'primary'}>Total a pagar: S/. {calculateTotalPrice(price, selectedSchedules)}</IonText>}

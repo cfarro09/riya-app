@@ -35,9 +35,9 @@ const timeFormatPE = new Intl.DateTimeFormat('es-PE', {
 
 const getTotalPrice = (booking: Booking) => {
   if (!booking.price) return 0
-  return booking.price?.numberOfClasses === 1
+  return (booking.price?.numberOfClasses === 1
     ? booking.schedulesSelected.length * booking.price?.value
-    : booking.price?.value
+    : booking.price?.value) * (booking?.persons.length || 1)
 }
 
 const BookingModal: FC<BookingModalProps> = ({ onDismiss, booking1 }) => {
