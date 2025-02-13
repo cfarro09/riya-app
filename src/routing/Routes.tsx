@@ -50,6 +50,7 @@ const AppRoutes: FC = () => {
 
         const myTrainers = trainers//.filter(trainer => mybookings.some(act => act.activity?.creator?.id == trainer.id))
         console.log("myActivities", myActivities || [])
+        console.log("mybookings", mybookings || [])
         dispatch({ type: AppActions.SetTrainers, payload: myTrainers || [] });
         dispatch({ type: AppActions.SetBookings, payload: mybookings || [] });
         await loadAllActivities();

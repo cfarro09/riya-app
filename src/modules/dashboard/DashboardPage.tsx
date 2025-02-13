@@ -61,12 +61,20 @@ const DashboardPage: FC = () => {
   }
 
   const filteredCategories = useMemo(() => {
-    return categories.filter((el) =>
-      el.name.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
-    ).sort((a, b) => a.name.localeCompare(b.name));
-  }, [categories, searchInput])
-
-  console.log()
+    const searchLower = searchInput.toLocaleLowerCase();
+    const filtered = categories.filter((el) =>
+      el.name.toLocaleLowerCase().includes(searchLower)
+    );
+    if (currentUser?.categories) {
+      const userCategoryIds = new Set(currentUser.categories.map((c: any) => c.id));
+      const prioritized = filtered.filter(cat => userCategoryIds.has(cat.id));
+      const others = filtered.filter(cat => !userCategoryIds.has(cat.id));
+      prioritized.sort((a, b) => a.name.localeCompare(b.name));
+      others.sort((a, b) => a.name.localeCompare(b.name));
+      return [...prioritized, ...others];
+    }
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
+  }, [categories, currentUser?.categories, searchInput]);
 
   return (
     <IonPage>

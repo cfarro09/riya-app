@@ -54,6 +54,7 @@ export async function getMyBookings(userId: number): Promise<Partial<Booking>[]>
       throw new Error('Network response was not ok');
     }
     const activityResponse = (await response.json()) as StrapiCollectionResponse<BookingResponse>
+    console.log("bearer", `Bearer ${getAuth()?.jwt}`)
     return mapBookingsResponseToBookings(activityResponse)
   } catch (error) {
     throw error

@@ -35,7 +35,7 @@ const SummaryStep: React.FC = () => {
     if (!selectedPrice) return 0
     return (selectedPrice?.numberOfClasses === 1
       ? selectedSchedules.length * selectedPrice?.value
-      : selectedPrice?.value) * (booking?.persons.length || 1)
+      : selectedPrice?.value) * ((booking?.persons.length || 0) + 1)
   }
 
   return (
@@ -65,14 +65,16 @@ const SummaryStep: React.FC = () => {
                 {booking?.level?.name || 'No especificado'}
               </IonText>
             </IonCol>
-            <IonCol size='12'>
-              <IonText className='summary-label'>
-                <strong>Edad:</strong>
-              </IonText>
-              <IonText className='summary-value'>
-                {`${booking?.age?.startAge} - ${booking?.age?.endAge} años` || 'No especificado'}
-              </IonText>
-            </IonCol>
+            {booking?.age?.startAge &&
+              <IonCol size='12'>
+                <IonText className='summary-label'>
+                  <strong>Edad:</strong>
+                </IonText>
+                <IonText className='summary-value'>
+                  {`${booking?.age?.startAge} - ${booking?.age?.endAge} años` || 'No especificado'}
+                </IonText>
+              </IonCol>
+            }
           </IonRow>
 
           {/* Detalles de Horarios */}

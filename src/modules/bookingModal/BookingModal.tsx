@@ -37,7 +37,7 @@ const getTotalPrice = (booking: Booking) => {
   if (!booking.price) return 0
   return (booking.price?.numberOfClasses === 1
     ? booking.schedulesSelected.length * booking.price?.value
-    : booking.price?.value) * (booking?.persons.length || 1)
+    : booking.price?.value) * ((booking?.persons.length || 0) + 1)
 }
 
 const BookingModal: FC<BookingModalProps> = ({ onDismiss, booking1 }) => {
@@ -83,14 +83,16 @@ const BookingModal: FC<BookingModalProps> = ({ onDismiss, booking1 }) => {
                         {booking?.level?.name || 'No especificado'}
                       </IonText>
                     </IonCol>
-                    <IonCol size='12'>
-                      <IonText className='summary-label'>
-                        <strong>Edad:</strong>
-                      </IonText>
-                      <IonText className='summary-value'>
-                        {`${booking?.age?.startAge} - ${booking?.age?.endAge} años` || 'No especificado'}
-                      </IonText>
-                    </IonCol>
+                    {booking?.age?.startAge &&
+                      <IonCol size='12'>
+                        <IonText className='summary-label'>
+                          <strong>Edad:</strong>
+                        </IonText>
+                        <IonText className='summary-value'>
+                          {`${booking?.age?.startAge} - ${booking?.age?.endAge} años` || 'No especificado'}
+                        </IonText>
+                      </IonCol>
+                    }
                   </IonRow>
 
                   {/* Detalles de Horarios */}

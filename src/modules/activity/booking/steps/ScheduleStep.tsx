@@ -54,7 +54,8 @@ const ScheduleStep: React.FC = () => {
   });
 
   const handleDateChange = (e: CustomEvent) => {
-    setSelectedDate(new Date(e.detail.value));
+    console.log("new Date(e.detail.value)", e.detail.value)
+    setSelectedDate(new Date(e.detail.value.split("T")[0] + "T10:00:00"));
     const buttonStartDateStringPrefix = activityType === 'Clase' ? `Fecha de Inicio:` : `Fecha:`
     setFechaDeInicioString(`${buttonStartDateStringPrefix} ${dateFormatPE.format(new Date(e.detail.value))}`)
     setStartDateModalOpened(false)
