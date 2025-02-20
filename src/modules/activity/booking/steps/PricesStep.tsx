@@ -24,13 +24,20 @@ const validatePrices = (booking: Booking, selectedSchedules: Schedule[]) => {
     booking?.activity?.prices?.filter(
       (price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1) && (!booking.age || booking.age.id === price?.age?.id) && (!booking.level || booking.level.id === price.level?.id))
     ) || [];
-    if (possiblePrices.length === 0) {
+
+  if (possiblePrices.length === 0) {
+    if (booking?.activity?.prices?.every(x => !x.level && !x.age)) {
+      console.log("booking?.activity?.prices", booking?.activity?.prices)
+      return booking?.activity?.prices?.filter((price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1)))
+    } else {
       return booking?.activity?.prices?.filter(
         (price) => ((price.numberOfClasses === selectedSchedules.length || price.numberOfClasses === 1) && ((!booking.level || booking.level.id === price.level?.id) || (!booking.age || booking.age.id === price?.age?.id)))
       ) || [];
-    } else {
-      return possiblePrices;
     }
+  } else {
+    return possiblePrices;
+  }
+
 }
 
 const PricesStep: React.FC = () => {

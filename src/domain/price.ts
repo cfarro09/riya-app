@@ -19,7 +19,8 @@ export const PRICE_DEFINITION_LITERALS = {
 }
 
 export interface Price {
-  id: number
+  id: number;
+  idx?: string;
   pricePackage: Package | undefined
   level: Level | undefined
   age: Age | undefined,

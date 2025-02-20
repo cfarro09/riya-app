@@ -49,6 +49,7 @@ const Prices: React.FC<PricesProps> = ({update}) => {
     if (priceDefinition != null) {
       const newPrice: Price = {
         id: 0,
+        idx: new Date().toISOString(),
         level,
         age,
         numberOfClasses: numberOfClasses || 1,
@@ -59,7 +60,7 @@ const Prices: React.FC<PricesProps> = ({update}) => {
       }
 
       const foundPrice = addingGetPrice(prices, newPrice) ?? newPrice
-      const filteredPrices = foundPrice ? prices.filter((price) => price !== foundPrice) : prices
+      const filteredPrices = foundPrice ? (currentActivity?.prices || []).filter((price) => price !== foundPrice) : (currentActivity?.prices || [])
       setPrices([...filteredPrices, {...foundPrice, value: value || 0}])
       dismiss()
     }
@@ -160,7 +161,7 @@ const Prices: React.FC<PricesProps> = ({update}) => {
           <IonContent class='ion-padding'>Ahora añade tus precios</IonContent>
         </IonPopover>
       )}
-      {priceDefinition !== null && prices.length > 0 && (
+      {priceDefinition !== null && (currentActivity?.prices || []).length > 0 && (
         <IonItem lines='none'>
           <PriceReport
             prices={currentActivity?.prices || []}
