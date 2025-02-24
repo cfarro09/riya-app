@@ -29,12 +29,12 @@ const Toolbar: React.FC<ToolbarProps> = ({onNavigate, date}) => {
   const { activityForm: { currentActivity } } = useActivityAppState()
   let startDayCycle: Date | undefined = undefined
   let lastDayCycle: Date | undefined = undefined
-  if (date.getDay() === 6 && currentActivity?.activityType === 'Clase') {
+  if (date.getDay() === 6) {
     const actualDate = new Date(date)
     actualDate.setDate(actualDate.getDate() - 7)
     startDayCycle = actualDate
   }
-  if (date.getDay() === 0 && currentActivity?.activityType === 'Clase') {
+  if (date.getDay() === 0) {
     const actualDate = new Date(date)
     actualDate.setDate(actualDate.getDate() + 7)
     lastDayCycle = actualDate
