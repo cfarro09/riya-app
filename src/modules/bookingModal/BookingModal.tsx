@@ -59,7 +59,7 @@ const BookingModal: FC<BookingModalProps> = ({ onDismiss, booking1 }) => {
           {booking1.bookings.map(booking => (
             <IonCard className='booking-summary-card' key={booking.id}>
               <IonCardHeader>
-                <IonCardTitle>Resumen de reserva</IonCardTitle>
+                <IonCardTitle className='summary-label'>Resumen de reserva</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
                 <IonGrid>
