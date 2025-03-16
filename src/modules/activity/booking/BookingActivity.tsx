@@ -124,7 +124,7 @@ const BookingActivity = ({ onDismiss }: BookingActivityProps) => {
 					return;
 				}
 
-				if (booking.price === undefined) {
+				if (!booking.price) {
 					present({
 						message: `Debe seleccionar un precio`,
 						duration: 3000,
