@@ -41,7 +41,7 @@ const SummaryStep: React.FC = () => {
   return (
     <IonCard className='booking-summary-card'>
       <IonCardHeader>
-        <IonCardTitle>Resumen de reserva</IonCardTitle>
+        <IonCardTitle className='summary-label'>Resumen de reserva</IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
         <IonGrid>

@@ -62,6 +62,7 @@ const BookingActivity = ({ onDismiss }: BookingActivityProps) => {
 	const [index, setIndex] = useState(0);
 
 	const isStepCompleted = (step: Step) => {
+		console.log('step', step, booking?.price)
 		if (step.value === 'schedule') {
 			return (booking?.schedulesSelected?.length ?? 0) > 0
 		}
@@ -76,7 +77,8 @@ const BookingActivity = ({ onDismiss }: BookingActivityProps) => {
 		}
 
 		if (step.value === 'prices') {
-			return booking?.price !== undefined
+			
+			return !!booking?.price
 		}
 
 		return true
